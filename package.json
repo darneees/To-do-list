@@ -1,4 +1,5 @@
 {
+  "homepage": "https://darneees.github.io/To-do-list",
   "name": "todolist",
   "version": "0.0.0",
   "private": true,
@@ -6,13 +7,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.3.10"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.5.1",
+    "gh-pages": "^6.1.0",
     "vite": "^5.0.5"
   }
 }
