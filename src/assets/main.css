@@ -1,15 +1,45 @@
-@import './base.css';
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Sora", sans-serif;
+}
 
-:root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-mute: #b4b4b4;
-  --vt-c-white-line: #b4b4b42a;
+body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0;
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 3rem 0 0 0;
+  background: #b4b4b4;
+  background-image: url(image/background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-backdrop-filter: blur(100px);
+          backdrop-filter: blur(100px);
+  position: relative;
+}
 
-  --vt-c-black: #181818;
-  --vt-c-black-mute: #282828;
+main .reserved {
+  position: absolute;
+  color: #ffffff;
+  bottom: 1rem;
+  left: 45%;
+  z-index: 0;
+  font-weight: 300;
+  opacity: 0.3;
+}
+main .reserved strong {
+  font-weight: 700;
+  color: #47A992;
+}
 
-  --vt-c-green: #47A992;
-
+.done {
+  text-decoration: line-through;
 }
 
 #app {
@@ -19,14 +49,93 @@
 
 #header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  gap: 0;
   margin: 0 0 2rem 0;
+}
+#header .title {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+#header .text {
+  color: #ffffff;
+  font-size: 1.1rem;
 }
 
 #main {
   position: relative;
+}
+#main ul {
+  list-style: none;
+  max-width: 90%;
+  margin: 2rem 0 0 0;
+}
+#main ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0;
+  max-width: 90%;
+  min-height: 270px;
+  position: relative;
+  font-size: 1.3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.1647058824);
+}
+#main ul li button {
+  background-color: #47A992;
+  color: #ffffff;
+  font-weight: 600;
+  position: absolute;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 0.2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.427) 0 5px 20px;
+}
+#main ul li button:hover {
+  transform: scale(1.1);
+}
+#main ul li span {
+  color: #ffffff;
+  position: absolute;
+  word-wrap: break-word;
+  left: 2.5rem;
+  margin: 0 1rem;
+}
+#main ul li input[type=checkbox] {
+  accent-color: #47A992;
+  position: absolute;
+  left: 0;
+  height: 1.6rem;
+  width: 1.6rem;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.427) 0 5px 20px;
+}
+#main .hidden {
+  background-color: #47A992;
+  color: #ffffff;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  height: 3.5rem;
+  width: 12rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.427) 0 5px 20px;
 }
 
 form {
@@ -37,416 +146,293 @@ form {
   gap: 0 1rem;
   z-index: 1;
 }
-
-.title {
-  color: var(--vt-c-green);
-  font-size: 2.5rem;
-  margin: 0 0 1rem 0;
-  text-transform: uppercase;
-}
-
-.text {
-  color: var(--vt-c-white);
+form .textTodo {
+  color: #282828;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
   font-size: 1.1rem;
-}
-
-.done {
-  text-decoration: line-through;
-}
-
-li {
-  max-width: 90%;
-  min-height: 270px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  position: relative;
-  color: var(--vt-c-white);
-  font-size: 1.3rem;
-  padding: 3rem 0;
-  border-bottom: 1px solid var(--vt-c-white-line);
-}
-
-li span {
-  position: absolute;
-  word-wrap: break-word;
-  left: 2.5rem;
-  margin: 0 1rem;
-}
-
-li button {
-  background-color: var(--vt-c-green);
-  color: var(--vt-c-white);
-  font-weight: 600;
-  position: absolute;
-  right: 0;
-  height: 2rem;
-  width: 2rem;
-  border-radius: .2rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  transition: transform .2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.30) 0 5px 20px;
-}
-
-li button:hover {
-  transform: scale(1.1);
-}
-
-li input[type="checkbox"] {
-  accent-color:  var(--vt-c-green);
-  position: absolute;
-  left: 0;
-  height: 1.6rem;
-  width: 1.6rem;
-  border: none;
-  outline:none;
-
-  box-shadow: rgba(0, 0, 0, 0.30) 0 5px 20px;
-}
-
-ul {
-  list-style: none;
-  max-width: 90%;
-  margin: 2rem 0 0 0;
-}
-
-.textTodo {
-  color: var(--vt-c-black-mute);
-  border-radius: .5rem;
-  outline: none;
-  border: none;
   height: 3.5rem;
   width: 34rem;
   padding: 0 1rem;
-
-  box-shadow: rgba(0, 0, 0, 0.30) 0 5px 20px;
+  box-shadow: rgba(0, 0, 0, 0.427) 0 5px 20px;
 }
-
-.addTask {
-  background-color: var(--vt-c-green);
-  color: var(--vt-c-white);
+form .textTodo::-moz-placeholder {
+  opacity: 0.5;
+}
+form .textTodo::placeholder {
+  opacity: 0.5;
+}
+form .addTask {
+  background-color: #47A992;
+  color: #ffffff;
   font-size: 1.8rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   font-weight: 600;
   border: none;
   height: 3.5rem;
   width: 5rem;
   cursor: pointer;
   z-index: 2;
-
   box-shadow: rgba(0, 0, 0, 0.427) 0 5px 20px;
 }
 
-.textTodo::placeholder {
-  color: var(--vt-c-black-mute);
-  opacity: .5;
-}
-
-.hidden {
-  background-color: var(--vt-c-green);
-  color: var(--vt-c-white);
-  font-size: 1.1rem;
-  border-radius: .5rem;
-  font-weight: 600;
-  border: none;
-  height: 3.5rem;
-  width: 12rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  cursor: pointer;
-  z-index: 2;
-
-  box-shadow: rgba(0, 0, 0, 0.427) 0 5px 20px;
-}
-
-@media (min-width: 1000px) {
-
+@media (min-width: 1200px) {
   #app {
     max-width: 60%;
   }
-
+  #header .text {
+    width: 90%;
+  }
+  #header .title {
+    color: #47A992;
+  }
   form {
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
-    gap: .9rem;
+    gap: 0.9rem;
   }
-
-  ul {
+  form .textTodo {
+    width: 33rem;
+  }
+  form .addTask {
+    width: 8rem;
+  }
+  #main ul {
     max-width: 100%;
     margin: 2rem 0 0 0;
   }
-
-  li {
+  #main ul li {
     max-width: 100%;
-    border-bottom: 1px solid var(--vt-c-white-mute);
+    border-bottom: 1px solid #b4b4b4;
   }
-
-  li span {
+  #main ul li span {
     max-width: 88%;
   }
-
-  li button {
+  #main ul li button {
     height: 2.5rem;
     width: 2.5rem;
     top: 7.5rem;
     right: 0;
   }
-
-  .textTodo {
-    width: 33rem;
-  }
-
-  .addTask {
-    width: 8rem;
-  }
-
-  .hidden {
+  #main .hidden {
     width: 7rem;
     top: 0;
-    right: 0;
-  }
-
-  .title  {
-    color: var(--vt-c-green);
-  }
-
-  .text {
-    width: 90%;
+    right: -6.5rem;
   }
 }
+::-webkit-scrollbar {
+  background-color: #ffffff;
+  width: 12px;
+}
 
+::-webkit-scrollbar-thumb {
+  background-color: #47A992;
+  width: 10px;
+  height: auto;
+}
 
-@media (min-width: 899px) and (max-width: 999px) {
-
+@media (min-width: 900px) and (max-width: 1199px) {
   #app {
     max-width: 90%;
   }
-
+  #header .text {
+    width: 90%;
+  }
+  #header .title {
+    color: #ffffff;
+  }
   form {
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 1rem;
   }
-
-  ul {
+  form .textTodo {
+    width: 100%;
+  }
+  form .addTask {
+    width: 8rem;
+  }
+  #main ul {
     max-width: 100%;
     margin: 2rem 0 0 0;
   }
-
-  li {
+  #main ul li {
     max-width: 100%;
-    border-bottom: 1px solid var(--vt-c-white);
+    border-bottom: 1px solid #ffffff;
   }
-
-  li span {
+  #main ul li span {
     max-width: 90%;
   }
-
-  li button {
-    height: 1.5rem;
-    width: 1.5rem;
-    top: 11rem;
-    left: 0;
+  #main ul li button {
+    height: 2.5rem;
+    width: 2.5rem;
+    top: 7rem;
+    right: 0;
   }
-
-  .textTodo {
-    width: 100%;
-  }
-
-  .addTask {
-    width: 8rem;
-  }
-
-  .hidden {
-    width: 6.35rem;
+  #main .hidden {
+    width: 6.7rem;
     top: 4.5rem;
     right: 0;
   }
-
-  .title  {
-    color: var(--vt-c-white);
-  }
-
-  .text {
-    width: 90%;
-  }
 }
-
 @media (min-width: 640px) and (max-width: 899px) {
-
+  main .reserved {
+    left: 30%;
+    opacity: 0.3;
+  }
   #app {
     max-width: 90%;
   }
-
+  #header .text {
+    width: 90%;
+  }
+  #header .title {
+    color: #ffffff;
+  }
   form {
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 1rem;
   }
-
-  ul {
+  form .textTodo {
+    width: 100%;
+  }
+  form .addTask {
+    width: 8rem;
+  }
+  #main ul {
     max-width: 100%;
     margin: 2rem 0 0 0;
   }
-
-  li {
+  #main ul li {
     max-width: 100%;
-    border-bottom: 1px solid var(--vt-c-white);
+    border-bottom: 1px solid #ffffff;
   }
-
-  li span {
-    max-width: 90%;
+  #main ul li span {
+    max-width: 80%;
   }
-
-  li button {
-    height: 1.5rem;
-    width: 1.5rem;
-    top: 11rem;
-    left: 0;
+  #main ul li button {
+    height: 2.2rem;
+    width: 2.2rem;
+    top: 7rem;
+    right: 0;
   }
-
-  .textTodo {
-    width: 100%;
-  }
-
-  .addTask {
-    width: 8rem;
-  }
-
-  .hidden {
-    width: 6.35rem;
+  #main .hidden {
+    width: 6.7rem;
     top: 4.5rem;
     right: 0;
   }
-
-  .title  {
-    color: var(--vt-c-white);
-  }
-
-  .text {
-    width: 90%;
-  }
 }
-
 @media (min-width: 430px) and (max-width: 639px) {
-
+  main .reserved {
+    left: 22%;
+    opacity: 0.3;
+  }
   #app {
     max-width: 90%;
   }
-
+  #header .text {
+    width: 90%;
+  }
+  #header .title {
+    color: #ffffff;
+  }
   form {
+    display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 0;
   }
-
-  ul {
+  form .textTodo {
+    width: 100%;
+  }
+  form .addTask {
+    position: absolute;
+    top: 4.55rem;
+    left: 0;
+    width: 8rem;
+  }
+  #main ul {
     max-width: 100%;
     margin: 2rem 0 0 0;
   }
-
-  li {
+  #main ul li {
     max-width: 100%;
-    border-bottom: 1px solid var(--vt-c-white);
+    border-bottom: 1px solid #ffffff;
   }
-
-  li span {
-    word-wrap: break-word;
-    max-width: 90%;
+  #main ul li span {
+    max-width: 85%;
   }
-
-  li button {
+  #main ul li button {
     height: 1.5rem;
     width: 1.5rem;
     top: 11rem;
     left: 0;
   }
-
-  .textTodo {
-    width: 100%;
-  }
-
-  .addTask {
-    position: absolute;
-    top: 4.55rem;
-    left: 0;
-    width: 8rem;
-  }
-
-  .hidden {
+  #main .hidden {
     width: 8rem;
     top: 4.5rem;
     right: 0;
   }
-
-  .title  {
-    color: var(--vt-c-white);
-  }
-
-  .text {
-    width: 90%;
-  }
 }
-
 @media (max-width: 429px) {
-
+  main .reserved {
+    left: 14%;
+    opacity: 0.3;
+  }
   #app {
     max-width: 90%;
   }
-
+  #header .text {
+    width: 90%;
+  }
+  #header .title {
+    color: #ffffff;
+  }
   form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 0;
   }
-
-  ul {
-    max-width: 100%;
-  }
-
-  li {
-    border-bottom: 1px solid var(--vt-c-white);
-  }
-
-  li span {
-    max-width: 90%;
-  }
-
-  li button {
-    height: 1.5rem;
-    width: 1.5rem;
-    top: 11rem;
-    left: 0;
-  }
-
-  .textTodo {
+  form .textTodo {
     width: 100%;
-    scroll-snap-type: initial;
   }
-
-  .addTask {
+  form .addTask {
     position: absolute;
     top: 4.55rem;
     left: 0;
     width: 8rem;
   }
-
-  .hidden {
+  #main ul {
+    max-width: 100%;
+    margin: 2rem 0 0 0;
+  }
+  #main ul li {
+    max-width: 100%;
+    border-bottom: 1px solid #ffffff;
+  }
+  #main ul li span {
+    max-width: 85%;
+  }
+  #main ul li button {
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 11rem;
+    left: 0;
+  }
+  #main .hidden {
     width: 8rem;
     top: 4.5rem;
     right: 0;
   }
-
-  .title  {
-    color: var(--vt-c-white);
-  }
-
-  .text {
-    width: 90%;
-  }
-
-}
+}/*# sourceMappingURL=main.css.map */

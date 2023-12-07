@@ -1,0 +1,19 @@
+// colors
+
+$vt-c-white: #ffffff;
+$vt-c-green: #47A992;
+$vt-c-black: #181818;
+$vt-c-white-mute: #b4b4b4;
+$vt-c-white-line: #b4b4b42a;
+$vt-c-black-mute: #282828;
+$shadowTwo: rgba(0, 0, 0, 0.427) 0 5px 20px;
+
+// align
+
+@mixin align ($align, $justify, $direction, $gap) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direction;
+    gap: $gap;
+}
